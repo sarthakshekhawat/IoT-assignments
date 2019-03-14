@@ -1,0 +1,18 @@
+1. Find frequency of each index
+----------MAP-REDUCE Job 1: FREQUENCY OUTPUT
+
+2. Relabel the indices w.r.t. the frequency (e.g., if file has only 10 
+and 7 as indices, with number of times 7 occurs being more, then 7 is 
+assigned index 1, and 10 is assigned index 2)
+
+
+3. Write back to file with the relabeled indices, with the lines in the 
+order of decreasing number of indices in it.
+----------MAP-REDUCE Job 2: RELABELED OUTPUT
+
+4. From the relabeled indices in conjunction with frequency count(from steps 1 and 2), find contiguous grouping of indices from right (least) to left (highest) s.t. sum of the frequency of indices in each group is just less than a specified threshold. 
+
+BONUS: The above is only an approximation. Instead of sum do it w.r.t. UNION OF LINES in which those indices occur
+
+5. Using the groups formed above, write the partitions corresponding to each group(lines which correspond to each group) to final grouped files WITHOUT the need to printing lines in decreasing order of number of indices in it.
+---------MAP-REDUCE Job 3: Multi-output
